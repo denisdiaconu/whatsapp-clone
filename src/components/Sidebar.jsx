@@ -4,7 +4,15 @@ import './Sidebar.css';
 function Sidebar() {
   return (
     <div className='sidebar'>
-        <h1>sidebar</h1>
+        <div className="sidebar_top">
+
+        </div>
+        <div className="sidebar_search">
+
+        </div>
+        <div className="sidebar_chats">
+            
+        </div>
     </div>
   )
 }
