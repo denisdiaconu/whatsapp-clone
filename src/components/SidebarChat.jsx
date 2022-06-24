@@ -10,7 +10,9 @@ function SidebarChat({ newChat }) {
 
     const createChat = () => {
         const room = prompt('Please enter the chat name')
-        
+        if(room) {
+            console.log('working')
+        }
     }
 
   return !newChat ? (
