@@ -46,3 +46,10 @@
     color: gray;
     cursor: pointer;
 }
+
+.sidebar_chats {
+    background-color: blueviolet;
+    flex: 1;
+    overflow-y: scroll;
+    background-color: rgb(255, 255, 255);
+}
