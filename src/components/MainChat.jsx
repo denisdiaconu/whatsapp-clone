@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './MainChat.css'
 import { Avatar, IconButton } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -7,6 +7,12 @@ import MicIcon from '@material-ui/icons/Mic';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 
 function MainChat() {
+    const [util, setUtil] = useState("");
+    const [input, setInput] = useState("");
+
+    useEffect(() => {
+        setUtil(`https://avatars.dicebear.com/api/gridy/${Math.random()}.svg`);
+    }, []);
 
     const sendMessage = (event) => {
 
@@ -16,7 +22,7 @@ function MainChat() {
   return (
     <div className="main_chat">
         <div className='chat_top'>
-            <Avatar src={`https://avatars.dicebear.com/api/gridy/${Math.random()}.svg`} />
+            <Avatar src={util} />
             <div className='chat_top_details'>
                 <h2>Room</h2>
                 <p>last on</p>
@@ -40,7 +46,7 @@ function MainChat() {
         <div className='chat_bottom'>
             <InsertEmoticonIcon />
             <form>
-                <input type="text" placeholder="Type a message" />
+                <input type="text" value={input} onChange={a => setInput(a.target.value) } placeholder="Type a message" />
                 <button onclick={sendMessage} type='submit'>Send</button>
             </form>
             <MicIcon />
