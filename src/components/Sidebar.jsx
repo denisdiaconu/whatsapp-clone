@@ -7,25 +7,17 @@ import React, { useState, useEffect } from 'react';
 import './Sidebar.css';
 import SidebarChat from './SidebarChat';
 import db from '../firebase';
-import { collection, getDocs } from 'firebase/firestore'
 
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
 
-    async function getCities(db) {
-        const citiesCol = collection(db, 'rooms');
-        const citySnapshot = await getDocs(citiesCol);
-        const cityList = citySnapshot.docs.map(doc => doc.data());
-        return cityList;
-      }
-
     useEffect(() => {
-        const data = getCities(db).then(value => ({
-            id: value.id,
-            data: value.data(),
-        }))
-        setRooms(data);
-        
+        db.collection('rooms').onSnapshot(snapshot => (
+            setRooms(snapshot.docs.map(doc => ({
+                id: doc.id,
+                data: doc.data(),
+            })))
+        ))
     }, [])
 
     console.log(rooms);
@@ -53,7 +45,6 @@ function Sidebar() {
             </div>
         </div>
         <div className="sidebar_chats">
-            <SidebarChat newChat/>
             {rooms.map(room => (
                 <SidebarChat key={room.id} id={room.id} name={room.data.name} />
             ))}
