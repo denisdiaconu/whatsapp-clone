@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import './SidebarChat.css';
-import { Avatar } from '@material-ui/core';
+import { Avatar } from '@mui/material';
 
-function SidebarChat({ newChat }) {
+function SidebarChat({ id, name, newChat }) {
 
     useEffect(() => {
 
@@ -19,7 +19,7 @@ function SidebarChat({ newChat }) {
     <div className="sidebar_chat">
         <Avatar src={`https://avatars.dicebear.com/api/gridy/${Math.random()}.svg`} />
         <div className='sidebar_chat_details'>
-            <h2>Room</h2>
+            <h2>{name}</h2>
             <p>message</p>
         </div>
     </div>

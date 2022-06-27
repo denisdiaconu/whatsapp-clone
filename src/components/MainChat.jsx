@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './MainChat.css'
-import { Avatar, IconButton } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import MicIcon from '@material-ui/icons/Mic';
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import { Avatar, IconButton } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MicIcon from '@mui/icons-material/Mic';
+import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 
 function MainChat() {
     const [util, setUtil] = useState("");
@@ -15,7 +15,10 @@ function MainChat() {
     }, []);
 
     const sendMessage = (event) => {
+        event.preventDefault();
+        console.log(input);
 
+        setInput('');
     }
 
 
@@ -47,7 +50,7 @@ function MainChat() {
             <InsertEmoticonIcon />
             <form>
                 <input type="text" value={input} onChange={a => setInput(a.target.value) } placeholder="Type a message" />
-                <button onclick={sendMessage} type='submit'>Send</button>
+                <button onClick={sendMessage} type='submit'>Send</button>
             </form>
             <MicIcon />
         </div>

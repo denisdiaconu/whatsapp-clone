@@ -1,6 +1,8 @@
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore/lite'
+
 const API_KEY = process.env.REACT_APP_FIREBASE_KEY;
 const APP_ID = process.env.REACT_APP_FIREBASE_ID;
-
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -12,3 +14,9 @@ const firebaseConfig = {
     appId: APP_ID,
     measurementId: "G-0EENBBZ47S"
   };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+
+export default db;
