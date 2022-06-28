@@ -6,15 +6,25 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MicIcon from '@mui/icons-material/Mic';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import { useParams } from 'react-router-dom';
+import db from '../firebase';
 
 function MainChat() {
     const [util, setUtil] = useState("");
     const [input, setInput] = useState("");
     const { roomId } = useParams();
+    const [roomName, setRoomName] = useState("");
 
     useEffect(() => {
         setUtil(`https://avatars.dicebear.com/api/gridy/${Math.random()}.svg`);
-    }, []);
+    }, [roomId]);
+
+    useEffect(() => {
+        if(roomId) {
+            db.collection('rooms').doc(roomId).onSnapshot(snapshot => (
+                setRoomName(snapshot.data().name)
+            ))
+        }
+    }, [roomId]);
 
     const sendMessage = (event) => {
         event.preventDefault();
@@ -29,7 +39,7 @@ function MainChat() {
         <div className='chat_top'>
             <Avatar src={util} />
             <div className='chat_top_details'>
-                <h2>Room</h2>
+                <h2>{roomName}</h2>
                 <p>last on</p>
             </div>
             <div className="chat_top_right">
