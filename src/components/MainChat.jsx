@@ -5,10 +5,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MicIcon from '@mui/icons-material/Mic';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import { useParams } from 'react-router-dom';
 
 function MainChat() {
     const [util, setUtil] = useState("");
     const [input, setInput] = useState("");
+    const { roomId } = useParams();
 
     useEffect(() => {
         setUtil(`https://avatars.dicebear.com/api/gridy/${Math.random()}.svg`);
