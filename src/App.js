@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react'
+import React from 'react'
 import Sidebar from './components/Sidebar';
 import MainChat from './components/MainChat';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { useStateValue } from './redux/StateProvider';
 
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   return (
     <div className="App">

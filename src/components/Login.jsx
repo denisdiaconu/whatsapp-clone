@@ -6,7 +6,9 @@ import { useStateValue } from '../redux/StateProvider';
 import { actionTypes } from '../redux/reducer';
 
 function Login() {
+    // eslint-disable-next-line no-empty-pattern
     const [{}, dispatch] = useStateValue();
+    // eslint-enable-next-line no-empty-pattern
 
     const signIn= () => {
         auth.signInWithPopup(provider).then(res => 

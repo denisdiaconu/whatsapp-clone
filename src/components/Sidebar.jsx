@@ -11,7 +11,7 @@ import { useStateValue } from '../redux/StateProvider';
 
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
-    const [{ user }, dispatch] = useStateValue();
+    const [{ user }] = useStateValue();
 
     useEffect(() => {
         db.collection('rooms').onSnapshot(snapshot => (

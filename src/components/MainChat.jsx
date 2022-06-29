@@ -17,7 +17,7 @@ function MainChat() {
     const { roomId } = useParams();
     const [roomName, setRoomName] = useState("");
     const [messages, setMessages] = useState([]);
-    const [{ user }, dispatch] = useStateValue();
+    const [{ user }] = useStateValue();
 
     useEffect(() => {
         setUtil(`https://avatars.dicebear.com/api/gridy/${Math.random()}.svg`);
