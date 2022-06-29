@@ -12,7 +12,6 @@ import { useStateValue } from '../redux/StateProvider';
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
     const [{ user }, dispatch] = useStateValue();
-    console.log(user)
 
     useEffect(() => {
         db.collection('rooms').onSnapshot(snapshot => (
@@ -23,7 +22,6 @@ function Sidebar() {
         ))
     }, [])
 
-    console.log(rooms);
   return (
     <div className='sidebar'>
         <div className="sidebar_top">
