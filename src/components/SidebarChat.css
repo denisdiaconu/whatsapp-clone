@@ -10,11 +10,22 @@
     transition: background-color 0.3s;
 }
 
+a {
+    text-decoration: none !important;
+    color: #000;
+}
+
 .sidebar_chat_details {
     margin-left: 14px;
 }
 
 .sidebar_chat_details > h2 {
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 7px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.sidebar_chat_details > p {
+    font-size: 13px;
 }

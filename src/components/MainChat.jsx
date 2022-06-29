@@ -57,7 +57,12 @@ function MainChat() {
             <Avatar src={util} />
             <div className='chat_top_details'>
                 <h2>{roomName}</h2>
-                <p>last on</p>
+                <p>
+                    Last seen{" "}
+                    {new Date(
+                    messages[messages.length - 1]?.timestamp?.toDate())
+                    .toUTCString()
+                }</p>
             </div>
             <div className="chat_top_right">
                 <IconButton>

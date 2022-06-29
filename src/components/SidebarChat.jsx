@@ -1,10 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SidebarChat.css';
 import { Avatar } from '@mui/material';
 import db from '../firebase';
 import { Link } from 'react-router-dom';
 
 function SidebarChat({ id, name, newChat }) {
+  const [messages, setMessages] = useState("");
+
+  useEffect(() => {
+    if (id) {
+        db.collection('rooms').doc(id).collection('messages')
+        .orderBy('timestamp', 'desc').onSnapshot(snapshot => (
+          setMessages(snapshot.docs.map((doc) => 
+            doc.data()
+          ))
+        ))
+    }
+  }, [])
 
     const createChat = () => {
         const room = prompt('Please enter the chat name:')
@@ -21,7 +33,7 @@ function SidebarChat({ id, name, newChat }) {
           <Avatar src={`https://avatars.dicebear.com/api/gridy/${Math.random()}.svg`} />
           <div className='sidebar_chat_details'>
               <h2>{name}</h2>
-              <p>message</p>
+              <p>{messages[0]?.message}</p>
           </div>
       </div>
     </Link>
