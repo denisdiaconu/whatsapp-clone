@@ -15,10 +15,10 @@ WhatsApp Clone uses React for the frontend part and Firebase for the backend par
 
 
 ## 🔴 Live <a name = "here"></a>
-**Click [here]() in order to see the page of this project.**
+**Click [here](https://whatsapp-clone-3769b.web.app) in order to see the page of this project.**
 
 
-![Page](https://github.com/denisdiaconu/whatsapp-clone/tree/master/src/images/page.jpg)
+![Page](https://github.com/denisdiaconu/whatsapp-clone/blob/master/src/images/page.png)
 
 
 ## Getting Started
