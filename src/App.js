@@ -5,10 +5,12 @@ import MainChat from './components/MainChat';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeChat from './components/HomeChat';
 import Login from './components/Login';
+import { useStateValue } from './redux/StateProvider';
 
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="App">
       {!user ? (

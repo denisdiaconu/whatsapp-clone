@@ -2,12 +2,18 @@ import { Button } from '@mui/material'
 import React from 'react'
 import './Login.css'
 import { auth, provider } from '../firebase'
+import { useStateValue } from '../redux/StateProvider';
+import { actionTypes } from '../redux/reducer';
 
 function Login() {
+    const [{}, dispatch] = useStateValue();
 
     const signIn= () => {
         auth.signInWithPopup(provider).then(res => 
-            console.log(res)
+            dispatch({
+                type: actionTypes.SET_USER,
+                user: res.user,
+            })
             )
     };
 
