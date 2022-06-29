@@ -1,0 +1,19 @@
+.home-chat {
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+.home-chat > h1 {
+    font-size: 30px;
+    font-weight: 400;
+    color: #41525d;
+}
+
+.home-chat > h1 > span {
+    background-color: #E6E6E6;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 4px;
+}
