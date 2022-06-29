@@ -16,7 +16,7 @@ function SidebarChat({ id, name, newChat }) {
           ))
         ))
     }
-  }, [])
+  }, [id])
 
     const createChat = () => {
         const room = prompt('Please enter the chat name:')
